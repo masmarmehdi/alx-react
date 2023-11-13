@@ -4,6 +4,8 @@ import Header from "../Header/Header";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
 import { getLatestNotification } from "../utils/utils";
+import BodySectionMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import BodySection from '../BodySection/BodySection';
 import CourseList from "../CourseList/CourseList";
 import PropTypes from "prop-types";
 import "./App.css";
@@ -46,10 +48,20 @@ class App extends React.Component {
         <div className="App">
           <Header />
           {this.props.isLoggedIn ? (
-            <CourseList listCourses={this.listCourses} />
+            <BodySectionMarginBottom title="Course list">
+              <CourseList listCourses={this.listCourses} />
+            </BodySectionMarginBottom>
           ) : (
-            <Login />
+            <BodySectionMarginBottom title="Log in to continue">
+              <Login />
+            </BodySectionMarginBottom>
           )}
+          <BodySection title="News from the school">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis at tempora odio, necessitatibus repudiandae reiciendis cum nemo sed asperiores ut molestiae eaque aliquam illo ipsa
+              iste vero dolor voluptates.
+            </p>
+          </BodySection>
           <Footer />
         </div>
       </React.Fragment>
